@@ -2,26 +2,27 @@
 // These must be at the very top of the file. Do not edit.
 // icon-color: red; icon-glyph: calendar-alt;
 // Optional configuration: calendars to show
-// e.g. const cals = ["Home", "Work"]
-const cals = []
+// Hier kannst du die zu berücksichtigenten Kalender angeben.
+// e.g. const cals = ["Privat", "Arbeit"]
+const cals = ["Privat"]
 const date = new Date()
 
 if (config.runsInWidget) {
 
   let widget = new ListWidget()
   let spaces = 7
-  const fontSize = 12
+  const fontSize = 18
 
   let header = widget.addStack()
 
   // Date heading
   let df = new DateFormatter()
-  df.dateFormat = "EEEE d/M"
+  df.dateFormat = "EEEE d.M.yyyy"
   let dayDate = header.addText(df.string(date).toUpperCase())
   dayDate.font = Font.semiboldSystemFont(fontSize)
 
   header.addSpacer()
-  
+
   // Get calendar events
   let events = await CalendarEvent.today([])
 
@@ -66,7 +67,7 @@ if (config.runsInWidget) {
         stack.addSpacer(3)
       } else {
         let df = new DateFormatter()
-        df.dateFormat = "h:mm"
+        df.dateFormat = "HH:mm"
         let start = stack.addText(df.string(event.startDate))
         start.font = Font.regularSystemFont(fontSize)
         start.textColor = event.calendar.color
@@ -96,7 +97,7 @@ if (config.runsInWidget) {
     // TODO No events today
     dayDate.textColor = Color.blue()
   }
-  
+
   widget.addSpacer()
   widget.setPadding(16,16,16,8)
   Script.setWidget(widget)
