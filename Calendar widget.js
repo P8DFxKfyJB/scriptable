@@ -1,6 +1,7 @@
 // Variables used by Scriptable.
 // These must be at the very top of the file. Do not edit.
 // icon-color: red; icon-glyph: calendar-alt;
+// all credit goes to https://github.com/drewkerr
 // Optional configuration: calendars to show
 // Hier kannst du die zu berücksichtigenten Kalender angeben.
 // e.g. const cals = ["Privat", "Arbeit"]
